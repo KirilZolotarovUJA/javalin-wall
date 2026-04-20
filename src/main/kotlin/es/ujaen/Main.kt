@@ -1,5 +1,9 @@
 package es.ujaen
 
+import io.javalin.Javalin
+
 fun main() {
-    println("Hello, world")
+    val app = Javalin.create { config ->
+        config.routes.get("/") { ctx -> ctx.result("Hello, world!") }
+    }.start(7070)
 }
